@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: "Roboto",
 		fontWeight: 300,
 		fontSize: 20,
-		textTransform:"uppercase",
+		textTransform: "uppercase",
 		['@media (max-width:780px)']: {
 			fontSize: 18
 		},
@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
 		}
 	},
 	preStyle: {
-        display: 'block',
-        margin: '0',
-        overflow: 'scroll',
-    },
+		display: 'block',
+		margin: '0',
+		overflow: 'scroll',
+	},
 }));
 
 
@@ -34,15 +34,14 @@ const Hit = (props) => {
 	let item = props.hit
 
 	unnecessaryKeys.map(key => delete item[key])
-  return (
-    <div style={{paddingTop:50, textAlign: "left"}}>
-			{/*<pre className={classes.preStyle}> {JSON.stringify(item, null, 2)}</pre>*/}
+	return (
+		<div style={{paddingTop: 50, textAlign: "left"}}>
 			<JSONPretty data={item} theme={JSONPrettyMon}></JSONPretty>
 			<div className={classes.link}>
-			<a  target="_blank" href={"https://kloopmedia.github.io/Journal/#/t/" + item.objectID}>link</a>
-    </div>
-    </div>
-  );
+				<a target="_blank" href={"https://kloopmedia.github.io/Journal/#/t/" + item.objectID}>link</a>
+			</div>
+		</div>
+	);
 }
 
 export default Hit
