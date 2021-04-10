@@ -1,5 +1,5 @@
-import ReactJson from 'react-json-view'
 import {makeStyles} from "@material-ui/core";
+import JSONPretty from 'react-json-pretty';
 
 const useStyles = makeStyles((theme) => ({
 	link: {
@@ -18,15 +18,23 @@ const useStyles = makeStyles((theme) => ({
 		['@media (max-width:350px)']: {
 			fontSize: 15
 		}
-	}
+	},
+	preStyle: {
+        display: 'block',
+        margin: '0',
+        overflow: 'scroll',
+    },
 }));
 
 const Hit = (props) => {
 	const classes = useStyles()
+	const JSONPrettyMon = require('react-json-pretty/dist/monikai');
+
 	const item = props.hit
   return (
     <div style={{paddingTop:50, textAlign: "left"}}>
-			<ReactJson enableClipboard={true} displayObjectSize={true} sortKeys={true} src={item} />
+			{/*<pre className={classes.preStyle}> {JSON.stringify(item, null, 2)}</pre>*/}
+			<JSONPretty data={item} theme={JSONPrettyMon}></JSONPretty>
 			<div className={classes.link}>
 			<a  target="_blank" href={"https://kloopmedia.github.io/Journal/#/t/" + item.objectID}>link</a>
     </div>

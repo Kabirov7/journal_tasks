@@ -19,10 +19,14 @@ const index = searchClient.initIndex('prod_JOURNAL_TASKS');
 const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "grid",
-		margin:"0 auto",
+		margin: "0 auto",
 		width: "90%",
 		gridTemplateColumns: "1fr 1fr",
-		textAlign: "left"
+
+		textAlign: "left",
+		['@media (max-width:780px)']: {
+			gridTemplateColumns: "1fr",
+		},
 	},
 	header: {
 		margin: 0,
@@ -59,6 +63,7 @@ const MyInstantSearch = () => {
 			</div>
 			<SearchBox/>
 			<Hits hitComponent={Hit}/>
+				<Pagination/>
 		</InstantSearch>
 	);
 }
