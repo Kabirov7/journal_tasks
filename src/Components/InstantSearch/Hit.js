@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core";
-import JSONPretty from 'react-json-pretty';
+import ReactJsonPrint from 'react-json-print'
 
 const useStyles = makeStyles((theme) => ({
 	link: {
@@ -36,7 +36,7 @@ const Hit = (props) => {
 	unnecessaryKeys.map(key => delete item[key])
 	return (
 		<div style={{paddingTop: 50, textAlign: "left"}}>
-			<JSONPretty data={item} theme={JSONPrettyMon}></JSONPretty>
+			<ReactJsonPrint dataObject={item} />
 			<div className={classes.link}>
 				<a target="_blank" href={"https://kloopmedia.github.io/Journal/#/t/" + item.objectID}>link</a>
 			</div>
