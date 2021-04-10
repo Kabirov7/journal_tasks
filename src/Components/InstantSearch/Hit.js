@@ -26,11 +26,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 const Hit = (props) => {
 	const classes = useStyles()
 	const JSONPrettyMon = require('react-json-pretty/dist/monikai');
+	const unnecessaryKeys = ["_highlightResult", "source"]
+	let item = props.hit
 
-	const item = props.hit
+	unnecessaryKeys.map(key => delete item[key])
   return (
     <div style={{paddingTop:50, textAlign: "left"}}>
 			{/*<pre className={classes.preStyle}> {JSON.stringify(item, null, 2)}</pre>*/}
